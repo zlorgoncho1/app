@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git switch main
+git pull
 cd /home/zlorg/app/scripts/
 source load_env_file.sh
 cd ..

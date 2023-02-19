@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  database:
+    build: ./database
+    image: zlorg/myadmin_database
+    env_file:
+      - ./database/database.env
+    container_name: database
+    volumes:
+      - data:/var/lib/postgresql/data/
+    networks:
+      - network
+
+  web:
+    build: ./web
+    image: zlorg/myadmin_web
+    env_file:
+      - ./web/web.env
+      - ./database/database.env
+    container_name: web
+    volumes:
+      - ./web:/my-admin
+      - ./web/requirements.txt:/my-admin/requirements.txt
+    ports:
+      - "${DJANGO_SERVER_PORT}:${DJANGO_SERVER_PORT}"
+    networks:
+      - network
+    depends_on:
+      - database
+
+volumes:
+  data:
+
+networks:
+  network:

@@ -1,6 +1,9 @@
 #!/bin/bash
 
-cd /home/zlorg/app/scripts/
+cd /home/zlorg/app/
+git switch test
+git pull
+cd scripts/
 source load_env_file.sh
 cd ..
 docker compose stop

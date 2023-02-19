@@ -11,3 +11,6 @@ async def push(payload: dict = Body(...)):
     if(payload['ref']=='refs/heads/test'):
         os.system('bash ' + script_path + 'ci/build.sh')
     return {'status': 'SUCCESS'}
+
+if __name__=="__main__":
+    uvicorn.run(app, host="0.0.0.0", port=5000)

@@ -25,6 +25,7 @@ class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     thumbnail = models.ImageField()
     categories = models.ManyToManyField(Category)
+    test = models.TextField()
 
     def __str__(self):
         return self.title

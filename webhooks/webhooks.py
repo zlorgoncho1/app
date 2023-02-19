@@ -4,7 +4,7 @@ import os
 
 app = FastAPI()
 
-script_path = "/home/zlorg/app/scripts"
+script_path = "/home/zlorg/app/scripts/"
 
 @app.post("/push/")
 async def push(payload: dict = Body(...)):
